@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍴 英格蘭介紹｜美食文化</title>
+
+<style>
+/* 7-2 CSS 樣式表: 使用 CSS 變數維持網站整體風格 */
+:root {
+    --color-england-blue: #00247d;
+    --color-england-red: #cf142b;
+    --color-england-white: #ffffff;
+    --color-background-light: #eef2f5;
+    --color-text-dark: #333;
+    --color-highlight: #ffcc00;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--color-background-light);
+    line-height: 1.6;
+}
+
+/* 頁首 */
+header {
+    background: linear-gradient(135deg, var(--color-england-blue) 0%, var(--color-england-red) 100%);
+    color: var(--color-england-white);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+/* 導覽列 */
+nav {
+    background-color: var(--color-text-dark);
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: var(--color-england-white);
+    margin: 0 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+nav a[href="food.html"] {
+    background-color: var(--color-england-red);
+    color: var(--color-highlight);
+}
+
+nav a:hover {
+    background-color: var(--color-england-red);
+    color: var(--color-highlight);
+}
+
+/* 內容區塊 */
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 9-1 Box Model, 9-2 邊界屬性, 9-3 留白屬性, 9-4 框線屬性 */
+.article-box { 
+    background-color: var(--color-england-white);
+    margin: 0 auto 30px auto; 
+    padding: 30px; 
+    border: 3px solid var(--color-england-blue); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-box h2 {
+    color: var(--color-england-red);
+    border-bottom: 2px solid var(--color-highlight);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* 3-4 項目符號與編號: 清單屬性優化 */
+ul, ol {
+    padding-left: 20px;
+    /* 8-4 清單屬性 */
+    list-style-type: square; 
+}
+
+/* 定義清單樣式優化 */
+dl {
+    margin: 20px 0;
+    border-left: 5px solid var(--color-highlight);
+    padding-left: 15px;
+}
+
+dt {
+    /* 8-2 字型屬性 */
+    font-weight: bold;
+    color: var(--color-england-blue);
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+dd {
+    margin-bottom: 15px;
+    margin-left: 0;
+    padding-left: 5px;
+    border-bottom: 1px dotted #ccc;
+}
+
+/* 圖片 */
+img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+/* 4-3 建立表格, 4-6 直行式表格, 10-3 表格屬性 (邊框樣式) */
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 20px 0;
+    border: 2px solid var(--color-england-blue);
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+thead th {
+    background-color: var(--color-england-red);
+    color: var(--color-england-white);
+    /* 10-3 表格屬性: text-align */
+    text-align: center;
+}
+
+/* 腳註 */
+footer {
+    background-color: var(--color-text-dark);
+    color: #a8a8a8;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+</style>
+
+<script>
+// 12-1 撰寫第一個JavaScript 程式, 12-4 變數, 12-5 常數
+document.addEventListener("DOMContentLoaded", function() {
+    let dishCount = 4; // 12-4 變數
+    const cuisine = "British Food"; // 12-5 常數
+    
+    // 12-7 流程控制 (簡單的條件判斷)
+    if (dishCount > 0) {
+        console.log("今日推薦 " + dishCount + " 種經典 " + cuisine + "。");
+    } else {
+        console.log("今日沒有特別推薦的英格蘭美食。");
+    }
+});
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🍽️ 英格蘭美食（English Cuisine）</h1>
+    <p>經典、豐盛與傳統的滋味</p>
+</header>
+
+<nav>
+    <a href="index.html">歷史</a>
+    <a href="culture.html">文化</a>
+    <a href="food.html">美食</a>
+    <a href="football.html">足球</a>
+    <a href="contact.html">互動</a>
+	<a href="politics.html">政治</a>
+</nav>
+
+<section>
+<div class="article-box">
+    <h2>英格蘭經典四大天王</h2>
+    <p>
+        英格蘭的烹飪文化以其豐盛的傳統菜餚聞名。以下是幾道代表性的經典菜色：
+    </p>
+
+    <ol> <li>炸魚薯條 (Fish and Chips)：國民美食，常在報紙上灑鹽和醋享用。</li>
+        <li>週日烤肉 (Sunday Roast)：家庭聚會的中心，通常包含烤牛肉、約克夏布丁和蔬菜。</li>
+        <li>牧羊人派 (Shepherd's Pie)：用羊肉末（或牛肉的 Cottage Pie）和馬鈴薯泥製成的派。</li>
+        <li>英式早餐 (Full English Breakfast)：豐盛的全套早餐，包含香腸、培根、雞蛋和烤豆等。</li>
+    </ol>
+
+    <p>
+        英格蘭美食曾被視為 <del>非常單調且缺乏變化</del>，但近年來，在亞洲和歐洲影響下，
+        其餐飲業已 <ins>獲得顯著提升</ins>，展現出多元化的風貌。
+    </p>
+</div>
+
+<div class="article-box">
+    <h2>☕ 傳統下午茶與甜點 (Definition List)</h2>
+    
+    <dl>
+        <dt>英式下午茶 (Afternoon Tea)</dt>
+        <dd>一項優雅的社交儀式，包含三層架點心：三明治、司康 (Scone) 和各種甜點。常搭配伯爵茶享用。</dd>
+
+        <dt>司康 (Scone)</dt>
+        <dd>介於麵包和蛋糕之間的小圓點心，通常佐以德文郡奶油 (Clotted Cream) 和果醬。</dd>
+
+        <dt>約克夏布丁 (Yorkshire Pudding)</dt>
+        <dd>一種用麵糊烤製的鹹味配菜，質地酥脆內部蓬鬆，是週日烤肉中不可或缺的一部分。</dd>
+    </dl>
+</div>
+
+<div class="article-box">
+    <h2>🌍 菜色與配料一覽</h2>
+    <table>
+        <caption>英格蘭部分經典菜色及其配料</caption>
+
+        <colgroup> <col style="width: 30%;">
+            <col style="background-color: #fce4ec; width: 40%;"> <col style="width: 30%;">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>主食名稱</th>
+                <th>核心配料</th>
+                <th>類型</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>炸魚薯條 (Fish and Chips)</td>
+                <td>鱈魚或黑線鱈魚、馬鈴薯</td>
+                <td>街頭小吃</td>
+            </tr>
+            <tr>
+                <td>香腸馬鈴薯泥 (Bangers and Mash)</td>
+                <td>英式香腸、馬鈴薯泥、洋蔥肉汁</td>
+                <td>酒吧經典</td>
+            </tr>
+            <tr>
+                <td>伊頓混亂 (Eton Mess)</td>
+                <td>蛋白霜、草莓、鮮奶油</td>
+                <td>甜點</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">請注意，不同地區的烹飪方式略有差異。</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="article-box">
+    <h2>英式早餐－ <img> 好吃</h2>
+    <p>英式早餐 (Full English) 的豐盛程度令人難忘：</p>
+    
+    <img src="images/full_english.jpg" alt="豐盛的英式早餐 - 測試">
+    <p style="text-align: center; font-style: italic;">圖片僅供參考，實際內容可能因餐廳而異。</p>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2025 England Introduction Website | 美食頁面</p>
+</footer>
+
+</body>
+</html>

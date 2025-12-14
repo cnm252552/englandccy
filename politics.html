@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏛️ 英格蘭介紹｜政治與制度</title>
+
+<style>
+/* --- 樣式與 food.html 保持一致 --- */
+:root {
+    --color-england-blue: #00247d;
+    --color-england-red: #cf142b;
+    --color-england-white: #ffffff;
+    --color-background-light: #eef2f5; 
+    --color-text-dark: #333;
+    --color-highlight: #ffcc00;
+}
+body {font-family: 'Microsoft JhengHei', 'Arial', sans-serif; margin: 0; background-color: var(--color-background-light); line-height: 1.6;}
+
+/* 頁首 */
+header {
+    background: linear-gradient(135deg, var(--color-england-blue) 0%, var(--color-england-red) 100%);
+    color: var(--color-england-white);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header h1 {margin-top: 0; font-size: 2.5em; letter-spacing: 2px;}
+
+/* 導覽列 */
+nav { 
+    background-color: var(--color-text-dark); 
+    padding: 10px 0; 
+    text-align: center; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav a {color: var(--color-england-white); margin: 0 15px; padding: 8px 15px; text-decoration: none; font-weight: bold; transition: background-color 0.3s, color 0.3s; border-radius: 5px;}
+nav a[href="politics.html"] {background-color: var(--color-england-red); color: var(--color-highlight);} 
+nav a:hover {background-color: var(--color-england-red); color: var(--color-highlight);}
+
+/* 內容區塊 */
+section {padding: 20px; max-width: 1200px; margin: 0 auto;}
+
+/* 9-1 Box Model, 9-4 框線屬性: 保持與 food.html 的 .article-box 結構一致 */
+.article-box { 
+    background-color: var(--color-england-white);
+    margin: 0 auto 30px auto; 
+    padding: 30px; 
+    border: 3px solid var(--color-england-blue); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.article-box h2 {
+    color: var(--color-england-red); 
+    border-bottom: 2px solid var(--color-highlight);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* 4-2 HTML5 新增的結構元素：圖片標註 (<figure> / <figcaption>) */
+figure {
+    margin: 30px 0;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    /* 10-2 定位 (使用 flex 讓圖片並排) */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* 換行以應對小螢幕 */
+}
+figure.dual-figure img {
+    max-width: 300px; /* 限制並排圖片的寬度 */
+    margin: 10px;
+}
+figure.dual-figure figcaption {
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+}
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-england-blue);
+    padding-top: 10px;
+    font-size: 0.9em;
+}
+img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto; 
+    border-radius: 6px;
+}
+
+/* 3-3 插入或刪除資料 (<ins> / <del>) 樣式 */
+ins {background-color: #e6ffe6; text-decoration: none; border-bottom: 2px solid green; padding: 2px 4px; border-radius: 3px;}
+del {background-color: #ffe6e6; color: #666; padding: 2px 4px; border-radius: 3px;}
+
+/* 3-5 定義清單 (<dl> / <dt> / <dd>) 樣式 */
+dl {margin: 20px 0; border-left: 5px solid var(--color-highlight); padding-left: 15px;}
+dt {font-weight: bold; color: var(--color-england-blue); margin-top: 10px; font-size: 1.1em;}
+dd {margin-bottom: 15px; margin-left: 0; padding-left: 5px; border-bottom: 1px dotted #ccc;}
+
+/* 表格樣式 (新增比較欄位) */
+table.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table.comparison-table th, table.comparison-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+table.comparison-table th {
+    background-color: var(--color-england-red);
+    color: var(--color-england-white);
+}
+
+/* 腳註 */
+footer {
+    background-color: var(--color-text-dark);
+    color: #a8a8a8;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+</style>
+
+<script>
+// 12-1 撰寫第一個JavaScript 程式, 12-4 變數
+document.addEventListener("DOMContentLoaded", function() {
+    // 12-4 變數, 12-5 常數
+    var politicalStatus = "君主立憲制國家"; 
+    const nationName = "英國";
+    
+    // 13-3 標準內建物件：Date 物件
+    const today = new Date();
+    // 12-6 運算子：使用 > 運算子
+    const currentHour = today.getHours();
+
+    // 13-2 window 物件 & 12-7 流程控制：根據時間顯示不同的政治問候
+    if (currentHour > 18) {
+        // 12-8 函式 (使用 console.log)
+        window.console.log("Good Evening! 歡迎關注 " + nationName + " 政治。");
+    } else if (currentHour > 12) {
+        window.console.log("Good Afternoon! " + nationName + " 是 " + politicalStatus);
+    } else {
+        window.console.log("Good Morning! 議會正在開會嗎？");
+    }
+});
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🏛️ 英格蘭（England）</h1>
+    <p>議會、君主與自治權力</p>
+</header>
+
+<nav>
+    <a href="index.html">歷史</a>
+    <a href="culture.html">文化</a>
+    <a href="food.html">美食</a>
+    <a href="football.html">足球</a>
+    <a href="contact.html">互動</a>
+    <a href="politics.html">政治</a>
+</nav>
+
+<section>
+
+<div class="article-box">
+    <h2>👑 政治體系概述與核心人物</h2>
+    <p>
+        英格蘭的政治體系是<strong>君主立憲制</strong>，日常運作由<ins>議會民主制</ins>主導。國家元首是君主，但實際的行政權力則掌握在由民選產生的首相及其內閣手中。
+    </p>
+    
+    <p>
+        過去，英國曾經是<del datetime="1997-07-01">全球最大的殖民帝國</del>，現在已轉變為一個擁有強大國際影響力的<ins datetime="2025-01-01">現代民主國家</ins>。
+    </p>
+    
+    <figure>
+        <img src="images/england_landmark.jpg" alt="英國國會大廈與大笨鐘">
+        <figcaption>圖：西敏宮/西敏寺，英國民主的象徵。</figcaption>
+    </figure>
+    
+    <figure class="dual-figure">
+        <div>
+            <img src="images/monarch_figure.jpg" alt="英國君主照片">
+            <figcaption>國家元首：君主 (國王/女王)</figcaption>
+        </div>
+        <div>
+            <img src="images/prime_minister.jpg" alt="英國首相照片">
+            <figcaption>政府首腦：首相 (Prime Minister)</figcaption>
+        </div>
+    </figure>
+</div>
+
+<div class="article-box">
+    <h2>⚖️ 王室 (君主) 與政府 (首相) 的職權比較</h2>
+    <p>
+        在君主立憲制下，王室與首相的職責被嚴格劃分，形成權力制衡的體系。
+    </p>
+    
+    <table class="comparison-table">
+        <caption>王室與政府首腦職責對照</caption>
+        <thead>
+            <tr>
+                <th>比較項目</th>
+                <th>君主 (王室 Monarch)</th>
+                <th>首相 (政府 Prime Minister)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>職位性質</td>
+                <td>國家元首 (Head of State)</td>
+                <td>政府首腦 (Head of Government)</td>
+            </tr>
+            <tr>
+                <td>權力來源</td>
+                <td>世襲繼承</td>
+                <td>議會多數黨，由民選產生</td>
+            </tr>
+            <tr>
+                <td>主要職責</td>
+                <td>儀式性、外交代表、政治中立</td>
+                <td>行政管理、制定政策、領導內閣</td>
+            </tr>
+            <tr>
+                <td>政治權力</td>
+                <td>名義上的保留權力 (Reserve Powers)</td>
+                <td>實際的決策權和行政權</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">英國政治的核心原則是：君主統而不治 (Reigns but does not Rule)。</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="article-box">
+    <h2>📝 關鍵政治機構與職位</h2>
+    <p>
+        英格蘭的政治生活圍繞著一系列關鍵的機構和職位展開。
+    </p>
+    
+    <dl>
+        <dt>國會 (Parliament)</dt>
+        <dd>由上議院（House of Lords）和下議院（House of Commons）組成，是最高的立法機關。</dd>
+        
+        <dt>首相 (Prime Minister)</dt>
+        <dd>下議院多數黨的領袖，負責政府的日常運作，為實際的政府首腦。</dd>
+        
+        <dt>君主 (Monarch)</dt>
+        <dd>國家元首，職責主要是儀式性的，並保持政治中立。</dd>
+    </dl>
+</div>
+
+<div class="article-box">
+    <h2>📜 權力下放 (Devolution)</h2>
+    <p>
+        雖然英格蘭是聯合王國的一部分，但與蘇格蘭、威爾士和北愛爾蘭不同，英格蘭<ins>沒有</ins>獨立的議會或政府。聯合王國的議會（位於倫敦）負責處理英格蘭的大部分事務，但關於權力下放的討論仍在持續進行中。
+    </p>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2025 England Introduction Website | 政治頁面</p>
+</footer>
+
+</body>
+</html>

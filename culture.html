@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎭 英格蘭介紹｜文學與傳統文化</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+<style>
+/* --- CSS 變數：與所有頁面統一 --- */
+:root {
+    --color-england-blue: #00247d; /* 統一的深藍色 */
+    --color-england-red: #cf142b;  /* 統一的紅色 */
+    --color-england-white: #ffffff;
+    --color-background-light: #eef2f5; /* 統一的淺背景色 */
+    --color-text-dark: #333;
+    --color-highlight: #ffcc00;    /* 統一的金色/黃色強調色 */
+}
+
+body {
+    font-family: 'Microsoft JhengHei', 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--color-background-light);
+    line-height: 1.6;
+}
+
+/* --- 頁首 (Header) --- */
+header {
+    background: linear-gradient(135deg, var(--color-england-blue) 0%, var(--color-england-red) 100%);
+    color: var(--color-england-white);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.5em; 
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 導覽列 (Navigation) --- */
+nav {
+    background-color: var(--color-text-dark);
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: var(--color-england-white);
+    margin: 0 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+nav a[href="culture.html"] {
+    background-color: var(--color-england-red);
+    color: var(--color-highlight);
+}
+
+nav a:hover {
+    background-color: var(--color-england-red);
+    color: var(--color-highlight);
+}
+
+/* --- 內容區塊 (Section/Article) --- */
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.article-box {
+    background-color: var(--color-england-white);
+    margin-bottom: 30px;
+    padding: 30px;
+    border-left: 5px solid var(--color-england-blue); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+.article-box h2 {
+    color: var(--color-england-red); 
+    border-bottom: 2px solid var(--color-highlight); 
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* 7-4 選擇器的類型: ID 選擇器範例 */
+#literary-background {
+    background-color: #f7f7f7; 
+    padding: 40px;
+}
+
+/* 7-4 選擇器的類型: 偽類選擇器範例 */
+.literature-link:hover {
+    color: var(--color-england-red);
+    font-size: 1.1em;
+}
+
+/* 新增圖片樣式，確保圖片顯示正常 */
+.tab-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border: 3px solid var(--color-england-blue);
+    border-radius: 8px;
+}
+
+
+/* 嵌入框架樣式 */
+iframe {
+    width: 100%;
+    height: 350px;
+    border: 1px solid var(--color-england-blue);
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* jQuery UI Tabs 容器樣式 */
+#tabs {
+    margin-top: 20px;
+}
+
+/* Progressbar 顏色調整 */
+.ui-progressbar-value {
+    background-color: var(--color-england-red); /* 進度條使用紅色 */
+}
+
+/* 腳註 */
+footer {
+    background-color: var(--color-text-dark);
+    color: #a8a8a8;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+</style>
+
+<script>
+$(function() {
+    // Tabs 元件
+    $("#tabs").tabs();
+    
+    // Menu 元件
+    $("#literary-menu").menu();
+
+    // Progress元件
+    var progressbar = $("#culture-progress");
+    var progressLabel = $(".progress-label");
+
+    var val = 0;
+    var interval = setInterval(function() {
+        val = val + 1;
+        if (val > 100) {
+            val = 100;
+            clearInterval(interval);
+        }
+        progressbar.progressbar({
+            value: val
+        });
+
+    }, 100); 
+    
+    progressbar.progressbar({
+        value: val,
+        change: function() {
+            progressLabel.text("認識程度: " + progressbar.progressbar("value") + "%");
+        },
+        complete: function() {
+            progressLabel.text("文化認識!");
+        }
+    });
+
+    // Checkboxradio 元件
+    $("#radio-group").controlgroup();
+
+    // Selectmenu 元件
+    $("#style-select").selectmenu({
+        width: 250
+    });
+});
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🎭 英格蘭文化（English Culture）</h1>
+    <p>莎士比亞、下午茶與獨特的傳統</p>
+</header>
+
+<nav>
+    <a href="index.html">歷史</a>
+    <a href="culture.html">文化</a>
+    <a href="food.html">美食</a>
+    <a href="football.html">足球</a>
+    <a href="contact.html">互動</a>
+	<a href="politics.html">政治</a>
+</nav>
+
+<section>
+
+<div class="article-box" id="literary-background">
+    <h2>📚 文學與戲劇</h2>
+    <p>
+        英格蘭被譽為文學巨匠的搖籃。威廉·莎士比亞的戲劇，到珍·奧斯汀的小說，再到JK羅琳，
+        英國文學的影響力橫跨數百年。
+    </p>
+    
+    <p>
+        想了解更多，可以點擊我們的 <a href="#shakespeare-quote">莎士比亞名言區</a>，
+        或參觀大英圖書館的 <a href="http://www.bl.uk" class="literature-link" target="_blank">官方網站</a> (外部連結)。
+    </p>
+
+    <h3>經典文學推薦</h3>
+    <ul id="literary-menu">
+        <li><a href="shakespeare.html">莎士比亞</a></li>
+        <li><a href="austen.html">珍·奧斯汀</a></li>
+        <li><a href="dickens.html">查爾斯·狄更斯</a></li>
+    </ul>
+
+</div>
+
+<div class="article-box">
+    <h2>🌐 世界文化內容</h2>
+    
+    <p>以下為大英博物館的官方網站，讓您一窺英格蘭的文化寶藏：</p>
+    <iframe 
+        src="https://www.britishmuseum.org/" 
+        title="大英博物館官網"
+        loading="lazy">
+    </iframe>
+</div>
+
+<div class="article-box">
+    <h2>🧪 文化展示</h2>
+    
+    <h3>英格蘭文化主題</h3>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">🇬🇧 英國君主制</a></li>
+            <li><a href="#tabs-2">🎩 傳統禮儀</a></li>
+            <li><a href="#tabs-3">🎨 藝術與設計</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>君主制是英國文化的核心，象徵著國家的統一與延續。</p>
+            <img class="tab-image" src="images/bjhg.jpg" alt="白金漢宮 - 英國君主制象徵">
+        </div>
+        <div id="tabs-2">
+            <p>英格蘭人注重禮貌和排隊的習慣，是其文化的重要特徵。</p>
+			<img class="tab-image" src="images/england_polite.jpg" alt="白金漢宮 - 英國君主制象徵">
+        </div>
+        <div id="tabs-3">
+            <p>從透納 (Turner) 到現代藝術，英國藝術在全球佔有一席之地。</p>
+			<img class="tab-image" src="images/england_turner.jpg" alt="白金漢宮 - 英國君主制象徵">
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h3>認識程度條</h3>
+    <div id="culture-progress" style="height: 30px;">
+        <div class="progress-label" style="text-align: center; line-height: 30px; font-weight: bold;">文化認同度: 0%</div>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h3>您喜歡英格蘭的哪種傳統？ (jQuery UI Controlgroup)</h3>
+    <form id="radio-group">
+        <label for="radio-1">下午茶</label>
+        <input type="radio" name="tradition" id="radio-1">
+        <label for="radio-2">花園派對</label>
+        <input type="radio" name="tradition" id="radio-2">
+        <label for="radio-3">聖誕節拉炮</label>
+        <input type="radio" name="tradition" id="radio-3">
+    </form>
+    
+    <label for="style-select" style="margin-top: 20px; display: block;">選擇偏好的文化風格:</label>
+    <select name="style-select" id="style-select">
+        <option>維多利亞時代</option>
+        <option>現代英倫風</option>
+        <option>鄉村傳統</option>
+    </select>
+    
+</div>
+
+<div class="article-box" id="shakespeare-quote">
+    <h2>📜 莎士比亞名言</h2>
+    <p style="font-style: italic; color: var(--color-text-dark);">
+        “All the world's a stage, and all the men and women merely players.” 
+        <br>— 威廉·莎士比亞 (William Shakespeare)
+    </p>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2025 England Introduction Website | 文化頁面</p>
+</footer>
+
+</body>
+</html>

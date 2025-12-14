@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📞 英格蘭介紹｜聯絡小張謝謝</title>
+<meta http-equiv="refresh" content="3600;url=index.html"> 
+
+<style>
+:root {
+    --color-england-blue: #00247d;
+    --color-england-red: #cf142b;
+    --color-england-white: #ffffff;
+    --color-background-light: #eef2f5; 
+    --color-text-dark: #333;
+    --color-highlight: #ffcc00;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--color-background-light);
+    line-height: 1.6;
+}
+
+/* 頁首 */
+header {
+    background: linear-gradient(135deg, var(--color-england-blue), var(--color-england-red));
+    color: var(--color-england-white);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* 導覽列 */
+nav {
+    background-color: var(--color-text-dark);
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+nav a[href="contact.html"] {
+    background-color: var(--color-england-red);
+    color: var(--color-highlight);
+}
+
+/* 內容 */
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.article-box {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 3px solid var(--color-england-blue);
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.article-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.article-box h2 {
+    color: var(--color-england-red);
+    border-bottom: 2px solid var(--color-highlight);
+}
+
+/* 表單 */
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    font-weight: bold;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* ✨新增：即時提示樣式 */
+input:focus, textarea:focus {
+    border: 2px solid var(--color-england-blue);
+    outline: none;
+}
+
+/* 按鈕 */
+button {
+    background-color: var(--color-england-red);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+/* ✨新增：送出中動畫 */
+button.loading {
+    background-color: gray;
+    cursor: wait;
+    transform: scale(0.95);
+}
+
+button:hover {
+    background-color: var(--color-england-blue);
+}
+
+/* 字數顯示 */
+#char-count {
+    font-size: 0.9em;
+    color: gray;
+    text-align: right;
+}
+
+/* footer */
+footer {
+    background-color: var(--color-text-dark);
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+}
+/* ===== 新增：表單進度條 ===== */
+#progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+#progress-bar {
+    height: 10px;
+    width: 0%;
+    background-color: var(--color-england-red);
+    transition: width 0.3s ease;
+}
+
+/* ===== 新增：錯誤紅框 ===== */
+.input-error {
+    border: 2px solid var(--color-england-red) !important;
+}
+
+</style>
+
+<script>
+/* ===== JavaScript 區 ===== */
+
+/* ✨事件處理程式（onclick 指向） */
+function handleSubmit(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById("submit-btn");
+    const email = document.getElementById("email").value;
+
+    if (email === "") {
+        alert("請填寫電子郵件！");
+        return;
+    }
+
+    btn.classList.add("loading");
+    btn.textContent = "送出中...";
+
+    setTimeout(() => {
+        alert("送出成功！感謝您的意見 🙌");
+        document.getElementById("contact-form").reset();
+        btn.classList.remove("loading");
+        btn.textContent = "送出意見";
+        updateCharCount();
+    }, 1500);
+}
+
+/* ✨即時字數顯示 */
+function updateCharCount() {
+    const msg = document.getElementById("message");
+    document.getElementById("char-count").textContent =
+        `目前字數：${msg.value.length}`;
+}
+
+/* ✨頁面載入後註冊事件 */
+window.onload = function () {
+    document.getElementById("submit-btn").onclick = handleSubmit;
+    document.getElementById("message").oninput = updateCharCount;
+};
+
+/* ✨滾動動畫 */
+document.addEventListener("DOMContentLoaded", function () {
+    const boxes = document.querySelectorAll(".article-box");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    });
+    boxes.forEach(box => observer.observe(box));
+});
+</script>
+</head>
+
+<body>
+
+<header>
+    <h1>📞 聯絡小張</h1>
+    <p>提供您的寶貴意見或提問</p>
+</header>
+
+<nav>
+    <a href="index.html">歷史</a>
+    <a href="culture.html">文化</a>
+    <a href="food.html">美食</a>
+    <a href="football.html">足球</a>
+    <a href="contact.html">互動</a>
+    <a href="politics.html">政治</a>
+</nav>
+
+<section>
+
+<div class="article-box">
+<h2>📝 意見回饋</h2>
+
+<form id="contact-form">
+
+    <!-- ⭐ 進度條放這 -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div class="form-group">
+        <label>姓名</label>
+        <input type="text" id="name" required>
+    </div>
+
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+        <label>訊息內容</label>
+        <textarea id="message" rows="5"></textarea>
+        <div id="char-count">目前字數：0</div>
+    </div>
+
+    <button id="submit-btn">送出意見</button>
+</form>
+</div>
+
+<div class="article-box">
+<h2>🗺️ 倫敦位置</h2>
+<iframe
+    src="https://maps.google.com/maps?q=London&output=embed"
+    style="height:450px;">
+</iframe>
+
+</div>
+
+<div class="article-box">
+    <h2>🔊 英國搖滾樂團 Queen（皇后合唱團）</h2>
+
+    <div class="article-box">
+    <h2>🔊 英國搖滾樂團 Queen（皇后合唱團）</h2>
+
+    <a
+        href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ"
+        target="_blank"
+        style="display:block; text-decoration:none;"
+        title="前往 YouTube 觀看 Queen 官方影片">
+
+        <img
+            src="https://img.youtube.com/vi/fJ9rUzIMcZQ/hqdefault.jpg"
+            alt="Queen – Bohemian Rhapsody 官方影片封面"
+            style="
+                width:100%;
+                border-radius:8px;
+                border:2px solid var(--color-england-blue);
+                box-shadow:0 4px 10px rgba(0,0,0,0.2);
+            ">
+    </a>
+
+    <p style="text-align:center; color:#666; margin-top:8px;">
+        ▶ 點擊封面前往 YouTube 觀看官方影片
+    </p>
+</div>
+
+</div>
+
+
+</section>
+
+<footer>
+<p>© 2025 England Introduction Website</p>
+<p>11255055</p>
+</footer>
+
+</body>
+</html>
